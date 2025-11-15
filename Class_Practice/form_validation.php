@@ -51,6 +51,9 @@
     </div>
 
     <?php
+    // echo "Client IP: " . $_SERVER["REMOTE_ADDR"];
+    // echo "Server IP: " . $_SERVER["SERVER_ADDR"];
+    // ini_set("display_error", 1);
     if (isset($_REQUEST["submit"])) {
         $name = $_REQUEST["name"];
         $mail = $_REQUEST["email"];

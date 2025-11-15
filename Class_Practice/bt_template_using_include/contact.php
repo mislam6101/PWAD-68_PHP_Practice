@@ -29,7 +29,105 @@
       </div>
       <!-- inner page section -->
       <section class="inner_page_head">
-         <div class="container_fuild">
+         <div class="con<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Search - DuckDuckGo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      text-align: center;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      font-family: 'Billabong', cursive;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      border-radius: 50px;
+      background-color: rgba(255,255,255,0.9);
+      padding: 6px 10px;
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 12px 16px;
+      border-radius: 50px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    button {
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      background-size: 200% 200%;
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-position: right center;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Instagram</div>
+    <form action="https://duckduckgo.com/" method="get" target="_blank">
+      <div class="search-box">
+        <input type="text" name="q" placeholder="Search privately on the web..." required />
+        <button type="submit">Search</button>
+      </div>
+    </form>
+    <div class="footer">Inspired by Instagram • Powered by DuckDuckGo</div>
+  </div>
+</body>
+</html>
+tainer_fuild">
             <div class="row">
                <div class="col-md-12">
                   <div class="full">

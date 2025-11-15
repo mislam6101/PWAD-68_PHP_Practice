@@ -1,0 +1,5 @@
+101 Aarif Batch-68 Pass
+102 Rafi Batch-68 Fail
+103 Subha Batch-68 Fail
+104 Jarin Batch-68 Pass
+105 Mahmud Batch-68 Pass
