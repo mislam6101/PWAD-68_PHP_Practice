@@ -4,7 +4,8 @@ $result = [
     "Aarif" => 79,
     "Jarin" => 78,
     "Rafi" => 79,
-    "Sakib" => 81
+    "Sakib" => 81,
+    "Tawfiq" => 33
 ];
 
 $max_result = 0;
