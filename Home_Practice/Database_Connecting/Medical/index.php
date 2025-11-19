@@ -27,6 +27,7 @@
             <th>Age</th>
             <th>Email</th>
             <th>Contact</th>
+            <th colspan="2">Action</th>
         </tr>
         <?php while($row = $result->fetch_object()): ?>
             <tr>
@@ -35,6 +36,8 @@
                 <td><?php echo $row->age ?></td>
                 <td><?php echo $row->email ?></td>
                 <td><?php echo $row->contact ?></td>
+                <td><a href="data_edit.php?id=<?php echo $row->id ?>">Edit</a></td>
+                <td><a onclick="return confirm('Confirm Delete')" href="data_delete.php?id=<?php echo $row->id ?>">Delete</a></td>
             </tr>
         <?php endwhile;
         $db->close();

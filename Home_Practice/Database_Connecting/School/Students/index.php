@@ -25,6 +25,7 @@
             <th>DOB</th>
             <th>E-mail</th>
             <th>Contact</th>
+            <th colspan="2">Action</th>
         </tr>
         <tr>
             <?php while($row = $result->fetch_object()): ?>
@@ -33,6 +34,8 @@
                 <td><?php echo $row->dob ?></td>
                 <td><?php echo $row->email ?></td>
                 <td><?php echo $row->contact ?></td>
+                <td><a href="data_edit.php?id=<?php echo $row->id ?>">Edit</a></td>
+                <td><a onclick="return confirm('Confirm Delete')" href="data_delete.php?id=<?php echo $row->id ?>">Delete</a></td>
         </tr>
         <?php endwhile;
         $db->close();

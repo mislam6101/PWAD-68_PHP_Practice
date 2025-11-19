@@ -41,6 +41,7 @@ include_once("db_config.php");
         extract($_REQUEST);
         $sql1 = "UPDATE students SET Email='$email', Contact='$cont' WHERE students.ID = '$id'";
         $conn->query($sql1);
+        $conn->close();
         header("Location:index.php");
     }
 

@@ -48,7 +48,7 @@
     
     ?>
 <hr>
-<button><a href="data_list.php">Patiant List</a></button>
+<button><a href="index.php">Patiant List</a></button>
 
 </body>
 </html>

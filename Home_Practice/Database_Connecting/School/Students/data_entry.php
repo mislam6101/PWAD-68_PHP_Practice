@@ -39,7 +39,7 @@
     
     ?>
 <hr>
-<button><a href="data_list.php">Student List</a></button>
+<button><a href="index.php">Student List</a></button>
 
 </body>
 </html>
