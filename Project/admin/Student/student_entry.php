@@ -25,12 +25,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Validation</h1>
+            <h1>Student Entry</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Validation</li>
+              <li class="breadcrumb-item active">Student Entry</li>
             </ol>
           </div>
         </div>
@@ -43,33 +43,49 @@
         <div class="row">
           <!-- left column -->
           <div class="col-md-12">
+            <?php 
+                if(isset($_REQUEST["click"])){
+                  extract($_REQUEST);
+
+                  $sql = "INSERT INTO students VALUES (NULL, '$name', '$dob', '$email', '$cont')";
+                  $db->query($sql);
+
+                  if($db->affected_rows){
+                    echo '<div class = "alert alert-success">Successfully Inserted</div>';
+                  }
+                }
+              
+              
+                ?>
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
+                <h3 class="card-title">Add new student</small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm">
+              <form id="quickForm" action="" method="POST">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="exampleInputEmail1">Student Name : </label>
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter your name">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="exampleInputPassword1">DOB : </label>
+                    <input type="date" name="dob" class="form-control" id="exampleInputPassword1">
                   </div>
-                  <div class="form-group mb-0">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                      <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
-                    </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Email : </label>
+                    <input type="text" name="email" class="form-control" id="exampleInputPassword1" placeholder="name@email.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Contact : </label>
+                    <input type="text" name="cont" class="form-control" id="exampleInputPassword1" placeholder="Enter your contact">
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" name="click">Submit</button>
                 </div>
               </form>
             </div>
@@ -115,7 +131,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 <!-- Page specific script -->
-<script>
+<!-- <script>
 $(function () {
   $.validator.setDefaults({
     submitHandler: function () {
@@ -160,6 +176,6 @@ $(function () {
     }
   });
 });
-</script>
+</script> -->
 </body>
 </html>
