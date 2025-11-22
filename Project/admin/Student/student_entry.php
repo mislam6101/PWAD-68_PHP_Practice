@@ -1,3 +1,4 @@
+<?php include_once("inc/db_config.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,12 +47,16 @@
             <?php 
                 if(isset($_REQUEST["click"])){
                   extract($_REQUEST);
+                  if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    echo '<div class="alert alert-danger">Please Enter a valid Email.</div>';
+                  }
+                  else{
+                    $sql = "INSERT INTO students VALUES (NULL, '$name', '$dob', '$email', '$cont')";
+                    $db->query($sql);
 
-                  $sql = "INSERT INTO students VALUES (NULL, '$name', '$dob', '$email', '$cont')";
-                  $db->query($sql);
-
-                  if($db->affected_rows){
-                    echo '<div class = "alert alert-success">Successfully Inserted</div>';
+                    if($db->affected_rows){
+                      echo '<div class = "alert alert-success">Successfully Inserted</div>';
+                    }
                   }
                 }
               
@@ -60,7 +65,8 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add new student</small></h3>
+                <h3 class="card-title" style="display: flex; justify-content: start; padding-top: 8px;">Add new student</small></h3>
+                <div style="display: flex; justify-content: flex-end;"><button type="button" class="btn btn-light"><a style="color: #007bff;" href="student_list.php">Student List</a></button></div>
               </div>
               <!-- /.card-header -->
               <!-- form start -->

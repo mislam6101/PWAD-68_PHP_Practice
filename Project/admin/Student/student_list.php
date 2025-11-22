@@ -48,14 +48,19 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            
-
+            <?php 
+            session_start();
+            if(isset($_SESSION['msg'])){
+              echo '<div class="alert alert-success">'. $_SESSION['msg'] .'</div>';
+              unset($_SESSION['msg']);
+            }
+            ?>
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Student List</h3>
+                <h4 class="card-title" style="display: flex; justify-content: start; padding-top: 8px;">Student List</h4>
 
+                <div style="display: flex; justify-content: flex-end;"><button type="button" class="btn btn-success"><a style="color: white;" href="student_entry.php">New Student</a></button></div>
                 
-                <button style="text-align: right;" type="button" class="btn btn-success"><a href="data_entry.php">New Student</a></button>
                 
               </div>
               <!-- /.card-header -->
@@ -85,7 +90,7 @@
                     <td><?php echo $row->dob; ?></td>
                     <td><?php echo $row->email; ?></td>
                     <td><?php echo $row->contact; ?></td>
-                    <td><a href="data_edit.php?id=<?php echo $row->id; ?>">Edit</a> | <a href="data_delete.php?id=<?php echo $row->id; ?>">Delete</a></td>
+                    <td class="text-center"><a href="data_edit.php?id=<?php echo $row->id; ?>"><i class="fas fa-edit"></i></a> | <a onclick="return confirm('Are you sure?')" href="data_delete.php?id=<?php echo $row->id; ?>"><i class="fas fa-trash"></i></a></td>
                   </tr>
                   <?php endwhile; ?>
                   </tbody>
