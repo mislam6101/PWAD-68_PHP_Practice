@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +40,8 @@
                 if($highest == $value){
                     echo "Name : " . $key . " Score : " . $value . "<br><br>";
                 }
-            }?>
+            }
+            ?>
     </table>
 </body>
 </html>
