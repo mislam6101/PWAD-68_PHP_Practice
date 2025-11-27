@@ -1,4 +1,12 @@
 <?php include_once("../inc/db_config.php") ?>
+<?php
+session_start();
+if(!isset($_SESSION["loggedin"])){
+  header("Location:index.php");
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +57,6 @@
         <div class="row">
           <div class="col-12">
             <?php 
-            session_start();
             if(isset($_SESSION['msg'])){
               echo '<div class="alert alert-success">'. $_SESSION['msg'] .'</div>';
               unset($_SESSION['msg']);

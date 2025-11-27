@@ -25,7 +25,14 @@
     $pass = md5($pass);
     $sql = "SELECT * FROM admins WHERE email = '$email' AND `password`='$pass'";
     $record = $db->query($sql);
+    $row = $record->fetch_assoc();
     if($record->num_rows > 0){
+      session_start();
+      $_SESSION["loggedin"] = true;
+      $_SESSION["email"] = $email;
+      $_SESSION["name"] = $row["name"];
+      $_SESSION["photo"] = $row["photo"];
+
       header("Location:dashboard.php");
     }
 

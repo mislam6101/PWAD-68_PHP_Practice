@@ -1,4 +1,12 @@
-<?php include_once("inc/db_config.php") ?>
+<?php include_once("../inc/db_config.php");
+
+session_start();
+if(!isset($_SESSION["loggedin"])){
+  header("Location:index.php");
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +59,15 @@
                     echo '<div class="alert alert-danger">Please Enter a valid Email.</div>';
                   }
                   else{
-                    $sql = "INSERT INTO students VALUES (NULL, '$name', '$dob', '$email', '$cont')";
+                    if(isset($_FILES['photo'])){
+                      $photo_name = $_FILES['photo']['name'];
+                      $tmp_name = $_FILES['photo']['tmp_name'];
+                      $upload_path = "Student/upload";
+                      $full_path = $upload_path.$photo_name;
+                      move_uploaded_file($tmp_name, "upload/" . $photo_name);
+                    }
+
+                    $sql = "INSERT INTO students VALUES (NULL, '$name', '$full_path', '$dob', '$email', '$cont')";
                     $db->query($sql);
 
                     if($db->affected_rows){
@@ -70,7 +86,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" action="" method="POST">
+              <form id="quickForm" action="" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Student Name : </label>
@@ -87,6 +103,10 @@
                   <div class="form-group">
                     <label for="exampleInputPassword1">Contact : </label>
                     <input type="text" name="cont" class="form-control" id="exampleInputPassword1" placeholder="Enter your contact">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Photo : </label>
+                    <input type="file" name="photo" class="form-control" id="exampleInputPassword1">
                   </div>
                 </div>
                 <!-- /.card-body -->
