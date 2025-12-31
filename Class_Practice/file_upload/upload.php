@@ -7,7 +7,7 @@
     <title>File Upload</title>
 </head>
 
-<b>
+<body>
     <h2>File upload using PHP Procedural Coding</h2>
 
     <?php
@@ -64,4 +64,4 @@
         <input type="text" name="" id="" placeholder="Enter Your Name"><br><br>
   </form>
 
-</b
+</body>
